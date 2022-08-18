@@ -9,17 +9,23 @@ class Human:
         else:
             self.last_name, self.name, self.address, self.phone_number = str(from_line).replace(" ", '').split("|")
 
-        def __str__(self):
-            return 'Human("{}", "{}", "{}", "{}")'.format(self.last_name, self.name, self.address, self.phone_number)
+    def __str__(self):
+        return f'Human: {self.last_name}, {self.name},\nAddress: {self.address},\nPhoneNumber: {self.phone_number}'
 
     def input_characters(self):
         self.last_name = input("Enter last name: ").capitalize()
         self.name = input("Enter name: ").capitalize()
         self.address = input("Enter address: ").capitalize()
-        self.phone_number = input("Enter phone number: ")
+        while True:
+            try:
+                self.phone_number = input("Enter phone number: ")
+                if not self.phone_number.isdigit():
+                    raise Exception
+                print(self.phone_number)
+                break
+            except Exception as e:
+                print('Неверный формат')
 
-    def __str__(self):
-        return 'Human --> "{}" - "{}" - "{}" - {}'.format(self.last_name, self.name, self.address, self.phone_number)
 
 class Contacts:
 

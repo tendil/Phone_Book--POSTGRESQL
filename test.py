@@ -7,19 +7,25 @@ class Human:
             self.address = address
             self.phone_number = phone_number
         else:
-            self.last_name, self.name, self.address, self.phone_number = str(from_line).replace(" ", '').split("|")
+            self.last_name, self.name, self.address, self.phone_number = str(from_line).strip().split("|")
 
-        def __str__(self):
-            return 'Human("{}", "{}", "{}", "{}")'.format(self.last_name, self.name, self.address, self.phone_number)
+    def __str__(self):
+        return f'Human: {self.last_name}, {self.name},\nAddress: {self.address},\nPhoneNumber: {self.phone_number}'
 
     def input_characters(self):
         self.last_name = input("Enter last name: ").capitalize()
         self.name = input("Enter name: ").capitalize()
         self.address = input("Enter address: ").capitalize()
-        self.phone_number = input("Enter phone number: ")
+        while True:
+            try:
+                self.phone_number = input("Enter phone number: ")
+                if not self.phone_number.isdigit():
+                    raise Exception
+                print(self.phone_number)
+                break
+            except Exception as e:
+                print('Неверный формат')
 
-    def __str__(self):
-        return 'Human --> "{}" - "{}" - "{}" - {}'.format(self.last_name, self.name, self.address, self.phone_number)
 
 class Contacts:
 
@@ -27,10 +33,12 @@ class Contacts:
         with open('base.txt') as file:
             for line in file:
                 human = Human(from_line=line)
-                if human.last_name == query:
+                #print(human.phone_number)
+                if human.address == query:
                     return human
-                if human.phone_number == query:
-                    return human
+                #elif  human.phone_number == query:
+                    #return human
+
     def add_human(self):
         h = Human()
         h.input_characters()
@@ -48,7 +56,7 @@ class Contacts:
         # line = f.readlines()
         # f.close()
         # f = open('base.txt', 'w')
-
+        #
         # for line in f.readline():
         #     human = Human(from_line=line)
         #     objects.append(human)
