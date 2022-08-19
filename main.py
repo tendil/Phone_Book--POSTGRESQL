@@ -43,10 +43,8 @@ class Contacts:
         if c.find_human(query=(h.last_name, h.name)) is None:
             f = open('base.txt', 'a')
             f.write('{0:10} | {1:10} | {2:10} | {3}'.format(h.last_name, h.name, h.address, h.phone_number) + '\n')
-            print('\nContact {last_name} {name} successfully added.)\n'.format(last_name=h.last_name, name=h.name))
+            print('\nContact {h.last_name} {h.name} successfully added.)\n')
             f.close()
-        # else:
-        #     print('This contact already exists.')
 
     def deleted_contacts(self, query):
         pass
