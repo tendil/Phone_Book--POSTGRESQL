@@ -48,12 +48,12 @@ class Contacts:
 
             if not str(('name', 'last name', 'address', 'phone number')) in first_line:
                 writer.writerow(('name', 'last name', 'address', 'phone number'))
-
-            lst = [(h.name, h.last_name, h.address, h.phone_number)]
-            for i in lst:
-                with open('date.csv', 'a') as file:
-                    writer = csv.writer(file)
-                    writer.writerow(lst)
+            else:
+                lst = [(h.name, h.last_name, h.address, h.phone_number)]
+                for i in lst:
+                    with open('date.csv', 'a') as file:
+                        writer = csv.writer(file)
+                        writer.writerow(lst)
             print(f'\nContact {h.name} {h.last_name} successfully added.)\n')
 
 
