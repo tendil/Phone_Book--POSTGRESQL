@@ -42,11 +42,15 @@ class Contacts:
         h = Human()
         h.input_characters()
         #if c.find_human(query=(h.name, h.last_name)) is None:
-        with open('date.csv', 'a+') as file:
-            writer = csv.writer(file)
-            first_line = file.readline(0)
+        
+        column_exist = False
+        with open('date.csv', 'r') as file:
+            if 'name,last name,address,phone number\n' == file.readline():
+                column_exist = True
 
-            if not str(('name', 'last name', 'address', 'phone number')) in first_line:
+        with open('date.csv', 'a') as file:
+            writer = csv.writer(file, delimiter=',', lineterminator='\n')
+            if not column_exist:
                 writer.writerow(('name', 'last name', 'address', 'phone number'))
 
             lst = [(h.name, h.last_name, h.address, h.phone_number)]
