@@ -22,13 +22,14 @@ Authors
 
 Badges
 ---
----
+
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tendil/Phone_Book?color=%2359a3f&logo=GitHub&logoColor=%2389543f&style=social)
 
 
 <h2>Installation</h2>
-___
+
+---
 
 ```python
 git clone git@github.com:tendil/Phone_Book.git
@@ -61,15 +62,15 @@ Support
 ---
 <h3>For support, telegram <a href="https://t.me/XllrepoDewelloper">@XllrepoDewelloper </a></h3>
 ---
----
+
 
 Feedback
 ---
----
+
 <h4>If you have any feedback, telegram <a href="https://t.me/XllrepoDewelloper">@XllrepoDewelloper </a></h4>
 
 Contributing
----
+
 ---
 <h3>Contributions are always welcome!</h3>
 
