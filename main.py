@@ -1,20 +1,21 @@
 import sys
+import csv
 class Human:
-    def __init__(self, last_name=None, name=None, address=None, phone_number=None, from_line=None):
+    def __init__(self, name=None, last_name=None, address=None, phone_number=None, from_line=None):
         if from_line is None:
-            self.last_name = last_name
             self.name = name
+            self.last_name = last_name
             self.address = address
             self.phone_number = phone_number
-        else:
-            self.last_name, self.name, self.address, self.phone_number = str(from_line).replace(" ", '').split("|")
+        # else:
+        #     self.name, self.last_name, self.address, self.phone_number = str(from_line)
 
-    def __str__(self):
-        return f'Human: {self.last_name}, {self.name},\nAddress: {self.address},\nPhoneNumber: {self.phone_number}'
+        def __str__(self):
+            return f'Human: {self.name}, {self.last_name},\nAddress: {self.address},\nPhoneNumber: {self.phone_number}'
 
     def input_characters(self):
-        self.last_name = input("Enter last name: ").capitalize()
         self.name = input("Enter name: ").capitalize()
+        self.last_name = input("Enter last name: ").capitalize()
         self.address = input("Enter address: ").capitalize()
         while True:
             try:
@@ -24,27 +25,38 @@ class Human:
                 print(self.phone_number)
                 break
             except Exception as e:
-                print('Неверный формат')
+                print('\nInvalid input!!! Only digit\'s!')
 
 
 class Contacts:
 
-    def find_human(self, query=None):
-        with open('base.txt') as file:
-            for line in file:
-                human = Human(from_line=line)
-                if human.last_name == query:
-                    return human
-                if human.phone_number == query:
-                    return human
+    # def find_human(self, query=None):
+    #     with open('date.csv') as file:
+    #         for line in file:
+    #             human = Human(from_line=line)
+    #             if human.last_name == query:
+    #                 return human
+    #             if human.phone_number == query:
+    #                 return human
     def add_human(self):
         h = Human()
         h.input_characters()
-        if c.find_human(query=(h.last_name, h.name)) is None:
-            f = open('base.txt', 'a')
-            f.write('{0:10} | {1:10} | {2:10} | {3}'.format(h.last_name, h.name, h.address, h.phone_number) + '\n')
-            print('\nContact {h.last_name} {h.name} successfully added.)\n')
-            f.close()
+        #if c.find_human(query=(h.name, h.last_name)) is None:
+        column_exist = False
+        with open('date.csv', 'r') as file:
+            if 'NAME,LAST NAME,ADDRESS,PHONE NUMBER\n' == file.readline():
+                column_exist = True
+                lst = (h.name, h.last_name, h.address, h.phone_number)
+                with open('date.csv', 'a') as file:
+                    writer = csv.writer(file, delimiter=',')
+                    writer.writerow(lst)
+
+        with open('date.csv', 'a') as file:
+            writer = csv.writer(file, delimiter=',', lineterminator='\n')
+            if not column_exist:
+                writer.writerow(('NAME', 'LAST NAME', 'ADDRESS', 'PHONE NUMBER'))
+            print(f'\nContact {h.name} {h.last_name} successfully added.)\n')
+
 
     def deleted_contacts(self, query):
         pass
@@ -61,10 +73,11 @@ class Contacts:
         #         f.write(object.__str__())
 
     def show_all_contacts(self):
-        with open('base.txt') as file:
-            for line in file:
+        with open('date.csv') as file:
+            reader = csv.reader(file)
+            for line in reader:
                 human = Human(from_line=line)
-                # result = enumerate(file.readlines())
+               # result = enumerate(file.readlines())
                 print(f"{human}" + '-' * len(line))
 
 def choice():
@@ -89,7 +102,7 @@ while True:
     sel = choice()
     if sel == 1:
         query = (input('To search for a contact, enter his full name or phone number: ').capitalize())
-        print(c.find_human(query))
+        #print(c.find_human(query))
 
     elif sel == 0:
         sys.exit()

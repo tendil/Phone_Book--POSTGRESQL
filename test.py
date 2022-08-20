@@ -42,20 +42,20 @@ class Contacts:
         h = Human()
         h.input_characters()
         #if c.find_human(query=(h.name, h.last_name)) is None:
-        with open('date.csv', 'a+') as file:
-            writer = csv.writer(file)
-            first_line = file.readline(0)
+        column_exist = False
+        with open('date.csv', 'r') as file:
+            if 'NAME,LAST NAME,ADDRESS,PHONE NUMBER\n' == file.readline():
+                column_exist = True
+                lst = (h.name, h.last_name, h.address, h.phone_number)
+                with open('date.csv', 'a') as file:
+                    writer = csv.writer(file, delimiter=',')
+                    writer.writerow(lst)
 
-            if not str(('name', 'last name', 'address', 'phone number')) in first_line:
-                writer.writerow(('name', 'last name', 'address', 'phone number'))
-            else:
-                lst = [(h.name, h.last_name, h.address, h.phone_number)]
-                for i in lst:
-                    with open('date.csv', 'a') as file:
-                        writer = csv.writer(file)
-                        writer.writerow(lst)
+        with open('date.csv', 'a') as file:
+            writer = csv.writer(file, delimiter=',', lineterminator='\n')
+            if not column_exist:
+                writer.writerow(('NAME', 'LAST NAME', 'ADDRESS', 'PHONE NUMBER'))
             print(f'\nContact {h.name} {h.last_name} successfully added.)\n')
-
 
 
     def deleted_contacts(self, query):
@@ -77,7 +77,7 @@ class Contacts:
             reader = csv.reader(file)
             for line in reader:
                 human = Human(from_line=line)
-            #     # result = enumerate(file.readlines())
+               # result = enumerate(file.readlines())
                 print(f"{human}" + '-' * len(line))
 
 def choice():
