@@ -57,6 +57,11 @@ cd Projet_Phone-Book
 ```python
 python main.py
 ```
+
+Features #надо не забыть заполнить как доделаю функционал)
+---
+
+
 Support
 -
 ---

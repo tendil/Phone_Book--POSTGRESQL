@@ -1,5 +1,6 @@
 import csv
 import sys
+import pandas as pd
 
 class Human:
     def __init__(self, name=None, last_name=None, address=None, phone_number=None, from_line=None):
@@ -27,12 +28,15 @@ class Human:
 class Contacts:
     def find_human(self, query=None, query1=None, number=None):
         csv_file = csv.reader(open('date.csv', 'r'), delimiter=',')
+        #df = pd.read_csv('date.csv', sep='|')
         for row in csv_file:
             if query == row[0]:
                 if query1 == row[1]:
+                    #print(f'\n{row}\n', "_-_-_-_-_-_-_ " * len(row))
                     print(row)
-            if number == row[3]:
-                print(row)
+            elif number == row[3]:
+                print(f'\n\n{row}\n\n', "_-_-_-_-_-_-_ " * len(row))
+
     def add_human(self):
         h = Human()
         h.input_characters()
@@ -51,19 +55,37 @@ class Contacts:
                 writer.writerow(('NAME', 'LAST NAME', 'ADDRESS', 'PHONE NUMBER'))
             print(f'\nContact {h.name} {h.last_name} successfully added.)\n')
 
-    def deleted_contacts(self, query):
-        pass
+    def deleted_contacts(self, del_1=None, del_fio=None, del_2=None):
+        del_cont = pd.read_csv('date.csv', delimiter=',')
+        del_fio.drop(['x' == del_1], axis=0)
 
+        # del_fio = del_fio.set_index('NAME')
+
+
+##############################################################################Сырое
+    def choice_deleted_human(self):
+        choice_deleted = (int(input
+                           ('How will we search for a user to delete?'
+                            '\n[1] - deleted for full name '
+                            '-- \n[2] - deleted for phone number: '))
+                       )
+        if choice_deleted == 1:
+            del_1 = (input('To deleted for a contact, enter his name: ').capitalize())
+            del_2 = (input('To deleted for a contact, enter his last name: ').capitalize())
+
+        elif choice_deleted == 2:
+            number = (input('To search for a contact, enter number phone: '))
+
+
+ ##############################################################################Сырое
 
     def show_all_contacts(self):
-        with open('date.csv', 'r') as file:
-            reader = csv.reader(file)
-            for line in reader:
-                print(f'{line}\n', "_-_-_-_-_-_-" * len(line))
+        all_cont = pd.read_csv('date.csv', delimiter=',')
+        print(all_cont)
 
     def choice_find_human(self):
         choice_find = (int(input
-                           ('Select contact search mode.\n[1] - search for full name: \n[2] - search for phone number: '))
+                           ('Select contact search mode.\n[1] - search for full name -- \n[2] - search for phone number: '))
                        )
         if choice_find == 1:
             query = (input('To search for a contact, enter his name: ').capitalize())
@@ -71,12 +93,12 @@ class Contacts:
             print(c.find_human(query, query1))
         elif choice_find == 2:
             number = (input('To search for a contact, enter number phone: '))
-            print(c.find_human(number))
+            print(c.find_human(number=number))
 
 def choice():
     sel = None
     try:
-        sel = int(input('Search - "1"\n'
+        sel = int(input('\nSearch - "1"\n'
                         'New contact - "2"\n'
                         'Show all phone book - "3"\n'
                         'Deleted contact - "4"\n'
@@ -95,18 +117,6 @@ while True:
     if sel == 1:
         c.choice_find_human()
 
-    #     choice_find = (int(input
-    #         ('Select contact search mode.\n[1] - search for full name: \n[2] - search for phone number: '))
-    #     )
-    #     if choice_find == 1:
-    #         query = (input('To search for a contact, enter his name: ').capitalize())
-    #         query1 = (input('To search for a contact, enter his last name: ').capitalize())
-    #         print(c.find_human(query, query1))
-    #     elif choice_find == 2:
-    #         number = (input('To search for a contact, enter number phone: ')
-
-
-
     elif sel == 0:
         sys.exit()
 
@@ -117,8 +127,7 @@ while True:
         c.show_all_contacts()
 
     elif sel == 4:
-        query = ((input('To delete a contact, enter his last name and name: ').capitalize()))
-        c.deleted_contacts(query)
+        c.choice_deleted_human()
 
     elif sel == 5:
         pass
