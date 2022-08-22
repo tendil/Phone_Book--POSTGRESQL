@@ -1,6 +1,6 @@
-import psycopg2
-from psycopg2 import Error
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+# import psycopg2
+# from psycopg2 import Error
+# from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -28,7 +28,6 @@ import config
 #         print("Соединение с PostgreSQL закрыто")
 
 
-
 # Создание движка на алхимии для работы с созданной БД.
 engine = create_engine(config.DB_STRING)
 engine.connect()
@@ -37,4 +36,3 @@ db_session = scoped_session(sessionmaker(bind=engine))
 
 Base = declarative_base()
 Base.query = db_session.query_property()
-

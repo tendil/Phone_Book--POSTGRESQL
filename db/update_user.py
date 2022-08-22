@@ -1,8 +1,10 @@
-from db import db_session
-from models import User
+from db.db_engin import db_session
+from db.models import User
 
-my_user = User.query.first()
+def update_user(query):
+    my_user = User.query.where(User.fullname == query).one()
+
 """
 прописать, что изменяем
 """
-db_session.commit()
+    db_session.commit()

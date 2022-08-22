@@ -1,9 +1,8 @@
-from db import db_session
-from models import User
+from db.db_engin import db_session
+from db.models import User
 
-first_user = User(firstname='Иван',
-                  lastname='Петров',
-                  address='Sormovskaya str., 55',
-                  phone_number='555-55-55')
-db_session.add(first_user)
-db_session.commit()
+
+def add_in_db_user(fullname, address, phone_number):
+    new_user = User(fullname=fullname, address=address, phone_number=phone_number)
+    db_session.add(new_user)
+    db_session.commit()

@@ -1,20 +1,20 @@
-from sqlalchemy import MetaData, Column, Integer, String, Table
-from db import Base, engine
+from sqlalchemy import Column, Integer, String
+
+from db.db_engin import Base, engine
 
 
-metadata = MetaData()
+# metadata = MetaData()
 
 class User(Base):
     __tablename__ = 'users'
-    # users = Table('users', metadata)
     id = Column(Integer, primary_key=True)
-    firstname = Column(String)
-    lastname = Column(String)
-    address = Column(String)
-    phone_number = Column(String)
+    fullname = Column(String())
+    address = Column(String())
+    phone_number = Column(String(), unique=True)
 
     def __repr__(self):
-        return f'<User {self.lastname} {self.phone_number}>'
+        return f'<User {self.fullname} {self.phone_number}>'
+
 
 
 if __name__ == "__main__":
