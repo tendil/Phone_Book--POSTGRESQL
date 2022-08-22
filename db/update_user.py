@@ -6,7 +6,7 @@ def update_user(query):
     user = User.query.where(User.fullname == query).one()
     choice = (
         int(input(
-            'Что необходимо изменить?\n[1] - full name; \n[2] - address;\n[3] -  phone number;\nInput 1, 2 or 3: ')))
+            'What is needed to be changed?\n[1] - full name; \n[2] - address;\n[3] -  phone number;\nInput 1, 2 or 3: ')))
     if choice == 1:
         query_for_update = input('\nTo update for a full name, input new full name: ').title()
         user.fullname = query_for_update
