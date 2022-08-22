@@ -17,5 +17,5 @@ def update_user(query):
         query_for_update = input('\nTo update for a phone number, input new phone number: ')
         user.phone_number = query_for_update
     db_session.commit()
-    print(f'\nthe contact has been successfully updated\n')
+    print(f'\nThe contact has been successfully updated\n')
 
