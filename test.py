@@ -1,77 +1,57 @@
-import csv
 import sys
 
+from db.add_user import add_in_db_user
+from db.get_user import get_user_from_db_all, get_user_from_db_name, get_user_from_db_number
+from db.delete_user import delete_user
+from db.update_user import update_user
+
+
 class Human:
-    def __init__(self, name=None, last_name=None, address=None, phone_number=None, from_line=None):
+    def __init__(self, fullname=None, address=None, phone_number=None, from_line=None):
         if from_line is None:
-            self.name = name
-            self.last_name = last_name
+            self.fullname = fullname
             self.address = address
             self.phone_number = phone_number
 
     def input_characters(self):
-        self.name = input("Enter name: ").capitalize()
-        self.last_name = input("Enter last name: ").capitalize()
+        self.fullname = input("Enter full name: ").title()
         self.address = input("Enter address: ").capitalize()
         while True:
             try:
                 self.phone_number = input("Enter phone number: ")
                 if not self.phone_number.isdigit():
                     raise Exception
-                print(self.phone_number)
                 break
             except Exception as e:
                 print('\nInvalid input!!! Only digit\'s!')
 
-
-class Contacts:
-    def find_human(self, query=None, query1=None, number=None):
-        csv_file = csv.reader(open('date.csv', 'r'), delimiter=',')
-        for row in csv_file:
-            if query == row[0]:
-                if query1 == row[1]:
-                    print(row)
-            if number == row[3]:
-                print(row)
-    def add_human(self):
-        h = Human()
-        h.input_characters()
-        column_exist = False
-        with open('date.csv', 'r') as file:
-            if 'NAME,LAST NAME,ADDRESS,PHONE NUMBER\n' == file.readline():
-                column_exist = True
-                lst = (h.name, h.last_name, h.address, h.phone_number)
-                with open('date.csv', 'a') as file:
-                    writer = csv.writer(file, delimiter=',')
-                    writer.writerow(lst)
-
-        with open('date.csv', 'a') as file:
-            writer = csv.writer(file, delimiter=',', lineterminator='\n')
-            if not column_exist:
-                writer.writerow(('NAME', 'LAST NAME', 'ADDRESS', 'PHONE NUMBER'))
-            print(f'\nContact {h.name} {h.last_name} successfully added.)\n')
-
-    def deleted_contacts(self, query):
-        pass
+    def __str__(self):
+        return f'{self.fullname}, {self.phone_number}'
 
 
-    def show_all_contacts(self):
-        with open('date.csv', 'r') as file:
-            reader = csv.reader(file)
-            for line in reader:
-                print(f'{line}\n', "_-_-_-_-_-_-" * len(line))
+def choice_find_human():
+    choice_find = (
+        int(input(
+            'Select contact search mode.\n[1] - search for full name; \n[2] - search for phone number;\n Input 1 or 2: ')))
+    if choice_find == 1:
+        query_for_search = (input('To search for a contact, enter his full name: ').title())
+        get_user_from_db_name(query_for_search)
+    elif choice_find == 2:
+        number = (input('To search for a contact, enter number phone: '))
+        get_user_from_db_number(number)
 
-    def choice_find_human(self):
-        choice_find = (int(input
-                           ('Select contact search mode.\n[1] - search for full name: \n[2] - search for phone number: '))
-                       )
-        if choice_find == 1:
-            query = (input('To search for a contact, enter his name: ').capitalize())
-            query1 = (input('To search for a contact, enter his last name: ').capitalize())
-            print(c.find_human(query, query1))
-        elif choice_find == 2:
-            number = (input('To search for a contact, enter number phone: '))
-            print(c.find_human(number))
+
+def add_user_in_db():
+    h = Human()
+    h.input_characters()
+    # print(h.phone_number)
+    # if User.query.where(User.phone_number == h.phone_number):
+    #     print('\nA contact with such a phone number already exists\n')
+    #
+    #     # add_in_db_user(h.fullname, h.address, h.phone_number)
+    # else:
+    add_in_db_user(h.fullname, h.address, h.phone_number)
+
 
 def choice():
     sel = None
@@ -88,37 +68,25 @@ def choice():
         print('You must enter an integer!!!\n\n')
     return sel
 
-c = Contacts()
 
 while True:
     sel = choice()
-    if sel == 1:
-        c.choice_find_human()
-
-    #     choice_find = (int(input
-    #         ('Select contact search mode.\n[1] - search for full name: \n[2] - search for phone number: '))
-    #     )
-    #     if choice_find == 1:
-    #         query = (input('To search for a contact, enter his name: ').capitalize())
-    #         query1 = (input('To search for a contact, enter his last name: ').capitalize())
-    #         print(c.find_human(query, query1))
-    #     elif choice_find == 2:
-    #         number = (input('To search for a contact, enter number phone: ')
-
-
-
-    elif sel == 0:
+    if sel == 0:
         sys.exit()
 
+    elif sel == 1:
+        choice_find_human()
+
     elif sel == 2:
-        c.add_human()
+        add_user_in_db()
 
     elif sel == 3:
-        c.show_all_contacts()
+        get_user_from_db_all()
 
     elif sel == 4:
-        query = ((input('To delete a contact, enter his last name and name: ').capitalize()))
-        c.deleted_contacts(query)
+        query = input('To delete a contact, enter his full name: ').title()
+        delete_user(query)
 
     elif sel == 5:
-        pass
+        query = input('To update a contact, enter his full name: ').title()
+        update_user(query)
