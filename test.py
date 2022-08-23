@@ -22,7 +22,7 @@ class Human:
                     raise Exception
                 break
             except Exception as e:
-                print('\nInvalid input!!! Only digit\'s!')
+                print('\n\033[48;5;88m Invalid input!!! Only digit\'s! \033[0;0m')
 
     def __str__(self):
         return f'{self.fullname}, {self.phone_number}'
@@ -31,7 +31,10 @@ class Human:
 def choice_find_human():
     choice_find = (
         int(input(
-            'Select contact search mode.\n[1] - search for full name; \n[2] - search for phone number;\n Input 1 or 2: ')))
+            'Select contact search mode.'
+            '\n\033[48;5;236m [1] - search for full name;    \033[0;0m'
+            '\n\033[48;5;236m [2] - search for phone number; \033[0;0m'
+            '\n Input' + '\033[38;5;46m 1 or 2 \033[0;0m : ')))
     if choice_find == 1:
         query_for_search = (input('To search for a contact, enter his full name: ').title())
         get_user_from_db_name(query_for_search)
@@ -53,18 +56,19 @@ def add_user_in_db():
 
 
 def choice():
+    print("*" * 26 + f'\nWELCOME TO THE PHONE BOOK!\n' + "*" * 26)
     sel = None
     try:
-        sel = int(input('Search - "1"\n'
-                        'New contact - "2"\n'
-                        'Show all phone book - "3"\n'
-                        'Deleted contact - "4"\n'
-                        'Edit contact - "5"\n'
-                        'EXIT - "0"\n'
-                        '\nEnter --->: '))
+        sel = int(input('\033[48;5;236m Search - [1]    \033[0;0m \n'
+                        '\033[48;5;236m New contact - [2]    \033[0;0m \n'
+                        '\033[48;5;236m Show all phone book - [3] \033[0;0m \n'
+                        '\033[48;5;236m Deleted - [4]        \033[0;0m \n'
+                        '\033[48;5;236m Edit - [5]      \033[0;0m \n'
+                        '\033[38;5;196m EXIT - [0]\033[0;0m\n'
+                        '\n\033[48;5;236m Enter ===>>: \033[0;0m '))
     except ValueError:
-        print('\n\nInvalid input!!!')
-        print('You must enter an integer!!!\n\n')
+        print('\n\033[48;5;88m Invalid input!!! \033[0;0m')
+        print('\033[48;5;88m You must enter an integer!!! \033[0;0m\n')
     return sel
 
 
