@@ -28,7 +28,7 @@ Badges
 
 ---
 <h3>You are most likely already tired, read and be a little distracted from this routine)</h3>
-![Jokes Card](https://readme-jokes.vercel.app/api)
+<img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
 
 
 <h2>Installation</h2>
@@ -89,6 +89,3 @@ Contributing
 -
 ---
 <h3>Contributions are always welcome!</h3>
-
-
-
