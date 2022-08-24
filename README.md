@@ -1,5 +1,4 @@
-# Phone book 
- 
+# Phone book
 ***
 
 ### Phone book. In it, you can save the contacts of your friends to always be in touch.
@@ -7,13 +6,11 @@
 ## License
 
 ---
-
 [MIT License](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_MIT)
 
 ## Authors
 
 ---
-
 * <a href="https://github.com/tendil">Me))</a>
 * Some people with telegram chats ❤️
 * <a href="https://github.com/Snake-G">Snake-G </a>
@@ -21,11 +18,9 @@
 ## Badges
 
 ---
-
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tendil/Phone_Book?color=%2359a3f&logo=GitHub&logoColor=%2389543f&style=social)
 
 ---
-
 ### You are most likely already tired, read and be a little distracted from this routine)
 <img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
 
@@ -33,7 +28,6 @@
 ## Installation
 
 ---
-
 ### **Download and install** --> <a href="https://www.postgresql.org/download/">PostgreSQL </a>
 
 ## ⇣⇣⇣**Assuming you have Linux Ubuntu** ⇣⇣⇣
@@ -82,7 +76,6 @@ _Where instead of stars is the password that was specified when creating the dat
 ## Usage
 
 ---
-
 ```python
 git clone git@github.com:tendil/Phone_Book.git
 ```
@@ -107,7 +100,6 @@ python main.py
 ## Features
 
 ---
-
 * Add new contact ==> ('Last name and name', 'Address', 'Phone number')
 * Search for contacts in the database ==> (You can search by: full name or phone number)
 * View all contacts ==> (Displayed as a table and shows the current number of saved contacts)
@@ -118,19 +110,15 @@ python main.py
 ## Support
 
 ---
-
 ### For support, telegram [@XllrepoDewelloper](https://t.me/XllrepoDewelloper)
 
 
 ## Feedback
 
 ---
-
 ### If you have any feedback, telegram [@XllrepoDewelloper](https://t.me/XllrepoDewelloper)
 
 ## Contributing
 
 ---
-
 ### Contributions are always welcome!
-
