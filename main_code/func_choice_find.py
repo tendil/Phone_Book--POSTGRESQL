@@ -1,5 +1,5 @@
 
-from db.get_user import get_user_from_db_all, get_user_from_db_name, get_user_from_db_number
+from db.get_user import get_user_from_db_name, get_user_from_db_number
 
 
 def choice_find_human():
