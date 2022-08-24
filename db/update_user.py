@@ -1,7 +1,6 @@
 from db.db_engin import db_session
 from db.models import User
 
-
 def update_user(query):
     user = User.query.where(User.fullname == query).one()
     choice = (
