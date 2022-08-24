@@ -56,7 +56,7 @@ def add_user_in_db():
 
 
 def choice():
-    print("*" * 26 + f'\nWELCOME TO THE PHONE BOOK!\n' + "*" * 26)
+    print("*" * 26 + f'\nWELCOME TO THE MAIN MENU!\n' + "*" * 26)
     sel = None
     try:
         sel = int(input('\033[48;5;236m Search - [1]    \033[0;0m \n'

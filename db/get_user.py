@@ -9,7 +9,7 @@ def get_user_from_db_all():
         conclusion.add_row([u.id, u.fullname, u.phone_number])
         conclusion.sortby = 'Full name'
     print(conclusion)
-
+    print(f'            CONTACTS IN YOUR BOOK --> ', len(users),'\n')
 def get_user_from_db_name(query):
     result = User.query.where(User.fullname == query).all()
     find_concl_name = PrettyTable()
