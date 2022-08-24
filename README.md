@@ -22,9 +22,13 @@ Authors
 
 Badges
 ---
-
+---
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tendil/Phone_Book?color=%2359a3f&logo=GitHub&logoColor=%2389543f&style=social)
+
+---
+<h3>You are most likely already tired, read and be a little distracted from this routine)</h3>
+![Jokes Card](https://readme-jokes.vercel.app/api)
 
 
 <h2>Installation</h2>
@@ -58,9 +62,16 @@ cd Projet_Phone-Book
 python main.py
 ```
 
-Features #надо не забыть заполнить как доделаю функционал)
+Features
 ---
-
+---
+<ul>
+<li> <h5>Add new contact ==> ('Last name and name', 'Address', 'Phone number') </h5> </li>
+<li> <h5>Search for contacts in the database ==> (You can search by: full name or phone number) </h5> </li>
+<li> <h5>View all contacts ==> (Displayed as a table and shows the current number of saved contacts) </h5> </li>
+<li> <h5>Removing a contact from the database ==> (You can delete for: full name or phone number) </h5> </li>
+<li> <h5>Changing a contact ==> (in the record you can change: full name, address or phone number) </h5> </li>
+</ul>
 
 Support
 -
@@ -78,4 +89,6 @@ Contributing
 -
 ---
 <h3>Contributions are always welcome!</h3>
+
+
 
