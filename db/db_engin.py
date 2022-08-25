@@ -7,9 +7,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 import config
 
-# Создание БД. Надо придумать, как это реализовать разово...
-
-
 # def create_db():
 #     try:
 #         connection = psycopg2.connect(user="postgres",
@@ -28,7 +25,6 @@ import config
 #             cursor.close()
 #             connection.close()
 #             print("Соединение с PostgreSQL закрыто")
-
 
 # Создание движка на алхимии для работы с созданной БД.
 engine = create_engine(config.DB_STRING)

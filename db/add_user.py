@@ -9,14 +9,13 @@ def add_in_db_user(fullname: str, address: str, phone_number: str):
     user_by_fullname = db_session.query(User).where(User.fullname == new_user.fullname).one_or_none()
     if user_by_phone_number is None and user_by_fullname is None:
         db_session.add(new_user)
-        print(f'\nThe contact has been successfully added\n')
+        print('\nThe' + f'\033[38;5;222m {fullname} \033[0;0m' + 'has been' + '\033[38;5;118m successfully \033[0;0m' + 'added\n')
     elif user_by_fullname is not None:
-        print("\nпользователь с таким ФИО уже существует.\n"
-              "Предлагаем обновить существующий контакт\n")
+        print("\nUser with this name already exists.\n"
+              "We suggest updating an existing contact\n")
         update_user(new_user.fullname)
     else:
         print(
-            f'\nпользователь с таким телефоном уже существует\n'
-            f'имя: {user_by_phone_number.fullname}, телефон: {user_by_phone_number.phone_number}\n')
-
+            f'\nUser with this phone number already exists\n'
+            f'\nName: {user_by_phone_number.fullname}, number: {user_by_phone_number.phone_number}\n')
     db_session.commit()
