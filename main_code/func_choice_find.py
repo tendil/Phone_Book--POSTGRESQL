@@ -1,7 +1,6 @@
 
 from db.get_user import get_user_from_db_name, get_user_from_db_number
 
-
 def choice_find_human():
     choice_find = (
         int(input(
