@@ -136,6 +136,6 @@ Rus2Vec_models/
 
 
 # config
-config.py
+webapp/config.py
 
 config.py
