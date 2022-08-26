@@ -11,5 +11,6 @@ def delete_user(query):
 
     else:
         print("\n\033[48;5;88m There is no such contact in your records, be more careful!!! \033[0;0m\n")
-
+        #return db_session.delete(user)
+        #надо сделать чтобы когда человека нету в бд, не кидало в меню, а ещё просилло ввести. Такая же проблема как и в поиске
     db_session.commit()
