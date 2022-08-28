@@ -1,15 +1,15 @@
 # Phone book
-***
+
 
 ### Phone book. In it, you can save the contacts of your friends to always be in touch.
 ### This is my little project. Its development is underway and it is not finished yet. I have not yet come up with a decent name for it</h4>
-## License
+### License
 
 ---
 
 [MIT License](https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_MIT)
 
-## Authors
+### Authors
 
 ---
 
@@ -17,7 +17,7 @@
 * Some people with telegram chats ❤️
 * <a href="https://github.com/Snake-G">Snake-G </a>
 
-## Badges
+### Badges
 
 ---
 
@@ -29,13 +29,13 @@
 <img src="https://readme-jokes.vercel.app/api" alt="Jokes Card" />
 
 
-## Installation
+### Installation
 
 ---
 
 ### **Download and install** --> <a href="https://www.postgresql.org/download/">PostgreSQL </a>
 
-## ⇣⇣⇣**Assuming you have Linux Ubuntu** ⇣⇣⇣
+### ⇣⇣⇣**Assuming you have Linux Ubuntu** ⇣⇣⇣
 
 ```python
 # Create the file repository configuration:
@@ -78,7 +78,7 @@ _And then, unfortunately, nothing will come of it, since you need to fill in an 
 
 _Where instead of stars is the password that was specified when creating the database in PostgreSQL_
 
-## Usage
+### Usage
 
 ---
 
@@ -103,7 +103,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## Features
+### Features
 
 ---
 
@@ -114,20 +114,20 @@ python main.py
 * Changing a contact ==> (in the record you can change: full name, address or phone number)
 
 
-## Support
+### Support
 
 ---
 
 ### For support, telegram [@XllrepoDewelloper](https://t.me/XllrepoDewelloper)
 
 
-## Feedback
+### Feedback
 
 ---
 
 ### If you have any feedback, telegram [@XllrepoDewelloper](https://t.me/XllrepoDewelloper)
 
-## Contributing
+### Contributing
 
 ---
 
