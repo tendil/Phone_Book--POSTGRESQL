@@ -24,17 +24,13 @@ def choice():
 while True:
     sel = choice()
     if sel == 0:
-        print('\n\033[38;5;118m Нou have successfully completed the job. \033[0;0m')
-        sys.exit()
+        sys.exit(print('\n\033[38;5;118m Нou have successfully completed the job. \033[0;0m'))
 
     elif sel == 1:
-        query = print('\n\033[48;5;240m If you want to go back to the menu, enter - [0]: \033[0;0m\n')
-        choice() if query == '0' else choice_find_human()
+       choice_find_human()
 
     elif sel == 2:
-        #query = print('\n\033[48;5;240m If you want to go back to the menu, enter - [0]: \033[0;0m\n')
         add_user_in_db()
-        #choice() if query == '0' else
 
     elif sel == 3:
         get_user_from_db_all()
@@ -42,9 +38,9 @@ while True:
     elif sel == 4:
         query = input('\n\033[48;5;240m If you want to go back to the menu, enter - [0]: \033[0;0m\n'
                       '\033[38;5;222m To delete a contact, enter his full name: \033[0;0m').title()
-        choice() if query == '0' else delete_user(query)
+        sel if query == '0' else delete_user(query)
 
     elif sel == 5:
         query = input('\n\033[48;5;240m If you want to go back to the menu, enter - [0]: \033[0;0m\n'
                       '\033[38;5;222m To update a contact, enter his full name: \033[0;0m').title()
-        choice() if query == '0' else update_user(query)
+        sel if query == '0' else update_user(query)

@@ -1,3 +1,4 @@
+
 class Human:
     def __init__(self, fullname=None, address=None, phone_number=None):
         self.fullname = fullname
@@ -5,7 +6,13 @@ class Human:
         self.phone_number = phone_number
 
     def input_characters(self):
+        #print('\n\033[48;5;240m If you want to go back to the menu, enter - [0]: \033[0;0m\n')
         self.fullname = input("Enter full name: ").title()
+
+        # if self.fullname == 0:
+        #     from main import choice
+        #     return choice()
+
         self.address = input("Enter address: ").capitalize()
         while True:
             try:
